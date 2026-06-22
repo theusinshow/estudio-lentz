@@ -1,8 +1,10 @@
-/* Design tokens — editorial cinemático (tema escuro). Fonte de verdade das cores. */
+/* Design tokens — editorial cinemático (tema escuro). Fonte de verdade das cores.
+   OKLCH: neutros levemente tintados na direção do acento quente (croma ~0.006-0.012),
+   em vez de preto/branco puros. O acento mantém o vermelho técnico da marca. */
 :root {
-  --bg: #0c0c0b;        /* preto cinema */
-  --fg: #f1ede6;        /* off-white */
-  --mut: #8f8b82;       /* texto secundário */
-  --acc: #fb3640;       /* vermelho técnico — único acento */
-  --line: rgba(241, 237, 230, 0.14);
+  --bg: oklch(0.152 0.006 55);   /* preto cinema, tom quente sutil */
+  --fg: oklch(0.944 0.010 85);   /* off-white quente */
+  --mut: oklch(0.625 0.012 80);  /* texto secundário */
+  --acc: oklch(0.628 0.232 22);  /* vermelho técnico — único acento (~#fb3640) */
+  --line: oklch(0.944 0.010 85 / 0.14);
 }

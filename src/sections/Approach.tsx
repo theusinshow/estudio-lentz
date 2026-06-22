@@ -12,18 +12,21 @@ export default function Approach() {
   return (
     <section className="border-t border-line py-32">
       <div className="wrap">
-        <SectionLabel index="03" className="mb-8">Abordagem</SectionLabel>
-        <div className="grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-4">
+        <SectionLabel index="03" className="mb-12">Abordagem</SectionLabel>
+        {/* Índice editorial (não grid de cards): réguas, ordinal mono, título grande
+            e descrição, em colunas assimétricas — eco da lista de projetos. */}
+        <ul>
           {STEPS.map((s) => (
-            <div key={s.n} className="flex min-h-[230px] flex-col justify-between bg-bg p-7 pb-10">
-              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-acc">{s.n}</span>
-              <div>
-                <h4 className="font-display text-xl font-extrabold uppercase tracking-tight">{s.t}</h4>
-                <p className="mt-3 text-sm leading-relaxed text-mut">{s.d}</p>
-              </div>
-            </div>
+            <li
+              key={s.n}
+              className="grid grid-cols-1 gap-3 border-t border-line py-9 last:border-b md:grid-cols-12 md:items-baseline md:gap-8 md:py-11"
+            >
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-acc md:col-span-1">{s.n}</span>
+              <h4 className="font-display text-2xl font-extrabold uppercase tracking-tight md:col-span-4 md:text-[28px]">{s.t}</h4>
+              <p className="max-w-[52ch] text-[15px] leading-relaxed text-mut md:col-span-7">{s.d}</p>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

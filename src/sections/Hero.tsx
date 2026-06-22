@@ -99,7 +99,7 @@ export default function Hero() {
                     aria-label={`Capa ${i + 1}`}
                     aria-selected={i === index}
                     role="tab"
-                    className="group flex h-8 items-center px-1.5"
+                    className="group flex h-11 items-center px-1.5"
                   >
                     <span
                       className={`block h-1 rounded-full transition-all duration-500 ${i === index ? "w-8 bg-acc" : "w-4 bg-fg/30 group-hover:bg-fg/60"}`}
@@ -113,7 +113,7 @@ export default function Hero() {
                   onClick={() => setManualPaused((p) => !p)}
                   aria-label={manualPaused ? "Reproduzir slideshow" : "Pausar slideshow"}
                   aria-pressed={manualPaused}
-                  className="flex h-8 items-center font-mono text-[10px] uppercase tracking-[0.18em] text-fg/55 transition-colors hover:text-fg"
+                  className="flex h-11 items-center font-mono text-[10px] uppercase tracking-[0.18em] text-fg/55 transition-colors hover:text-fg"
                 >
                   {manualPaused ? "▶ Play" : "❚❚ Pausar"}
                 </button>

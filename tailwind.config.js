@@ -12,8 +12,8 @@ export default {
       },
       fontFamily: {
         display: ['"Archivo"', "system-ui", "sans-serif"],
-        mono: ['"Space Mono"', "ui-monospace", "monospace"],
-        sans: ['"Inter"', "system-ui", "sans-serif"],
+        mono: ['"Spline Sans Mono"', "ui-monospace", "monospace"],
+        sans: ['"Schibsted Grotesk"', "system-ui", "sans-serif"],
       },
     },
   },
