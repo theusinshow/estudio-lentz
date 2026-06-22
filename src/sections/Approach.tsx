@@ -1,4 +1,6 @@
 // src/sections/Approach.tsx
+import SectionLabel from "../components/SectionLabel";
+
 const STEPS = [
   { n: "01", t: "Lógica", d: "Todo projeto começa por um partido claro: estrutura e implantação antes da forma." },
   { n: "02", t: "Matéria", d: "Concreto, madeira e vidro em estado bruto — sem ornamento, com intenção." },
@@ -10,9 +12,7 @@ export default function Approach() {
   return (
     <section className="border-t border-line py-32">
       <div className="wrap">
-        <div className="mb-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-mut">
-          <span className="h-px w-9 bg-acc" />Abordagem
-        </div>
+        <SectionLabel index="03" className="mb-8">Abordagem</SectionLabel>
         <div className="grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-4">
           {STEPS.map((s) => (
             <div key={s.n} className="flex min-h-[230px] flex-col justify-between bg-bg p-7 pb-10">

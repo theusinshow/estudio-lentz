@@ -7,6 +7,8 @@
   html { -webkit-font-smoothing: antialiased; }
   body { @apply bg-bg text-fg font-sans; overflow-x: hidden; }
   ::selection { background: var(--acc); color: var(--bg); }
+  /* Foco visível por teclado: anel vermelho técnico (sem afetar clique/mouse) */
+  :focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; border-radius: 2px; }
 }
 /* Lenis */
 html.lenis, html.lenis body { height: auto; }

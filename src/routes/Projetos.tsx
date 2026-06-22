@@ -3,6 +3,7 @@ import { useState } from "react";
 import { PROJECTS } from "../content/data/projects";
 import ProjectListRow from "../components/ProjectListRow";
 import CursorImage from "../components/CursorImage";
+import SectionLabel from "../components/SectionLabel";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 
 export default function Projetos() {
@@ -13,9 +14,7 @@ export default function Projetos() {
     <div className="pt-[68px]">
       <section className="py-24">
         <div className="wrap">
-          <div className="mb-12 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-mut">
-            <span className="h-px w-9 bg-acc" />Projetos
-          </div>
+          <SectionLabel className="mb-12">Projetos</SectionLabel>
           <div className="border-t border-line">
             {PROJECTS.map((p) => (
               <ProjectListRow key={p.slug} project={p}

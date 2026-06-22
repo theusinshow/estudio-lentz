@@ -5,47 +5,65 @@ export interface Project {
   local: string;
   area: string;
   type: string;
-  blurb: string;       // short, for cards/list
+  blurb: string;       // curto, para cards/lista
   cover: string;
-  gallery: string[];
-  description: string; // long, for detail page
+  gallery: string[];   // 5 imagens (página de detalhe)
+  description: string; // longo, para a página de detalhe
+  featured?: boolean;  // aparece na Home (seção "Projetos selecionados")
+  tone?: "light" | "dark"; // tom predominante da capa (claro/escuro). Metadado de curadoria;
+  //  o Hero hoje usa uma placa tintada com contraste fixo, então este campo não troca mais
+  //  a cor do texto — fica como referência para futuros tratamentos.
 }
 
-const u = (id: string, w = 1400) => `https://images.unsplash.com/${id}?w=${w}&q=80&auto=format&fit=crop`;
+// Caminho das fotos locais em /public/projects/<slug>/{cover,01..05}.jpg
+const img = (slug: string, file: string) => `/projects/${slug}/${file}.jpg`;
+const gallery = (slug: string) => ["01", "02", "03", "04", "05"].map((n) => img(slug, n));
 
 export const PROJECTS: Project[] = [
   {
-    slug: "casa-patio", name: "Casa Pátio", year: 2025, local: "Lagoa da Conceição — SC",
-    area: "248 m²", type: "Residência",
-    blurb: "Um pátio central organiza a casa: luz e ventilação cruzada para todos os ambientes.",
-    cover: u("photo-1600585154340-be6161a56a0c"),
-    gallery: [u("photo-1600585154340-be6161a56a0c"), u("photo-1600607687939-ce8a6c25118c"), u("photo-1600566753190-17f0baa2a6c3")],
-    description: "Concreto aparente e madeira em torno de um vazio central. O pátio traz luz natural ao miolo do programa e cria ventilação cruzada permanente — a casa respira sem depender de fachada.",
+    slug: "casa-patio", name: "Casa Pátio", year: 2023, local: "Santo Amaro da Imperatriz — SC",
+    area: "264 m²", type: "Residência", featured: true, tone: "dark",
+    blurb: "Tijolo e concreto em torno de um pátio central que ventila e ilumina a casa inteira.",
+    cover: img("casa-patio", "cover"), gallery: gallery("casa-patio"),
+    description: "Paredes de tijolo aparente e estrutura de concreto se organizam ao redor de um vazio central. O pátio cruza luz e ar por todos os ambientes, e a cobertura metálica, com as tesouras à vista, deixa o sistema construtivo legível de dentro.",
   },
   {
-    slug: "galpao-cru", name: "Galpão Cru", year: 2024, local: "Biguaçu — SC",
-    area: "1.120 m²", type: "Retrofit",
-    blurb: "Reconversão de um galpão dos anos 80 em estúdios criativos.",
-    cover: u("photo-1497366811353-6870744d04b2"),
-    gallery: [u("photo-1497366811353-6870744d04b2"), u("photo-1524758631624-e2822e304c36"), u("photo-1503387762-592deb58ef4e")],
-    description: "A estrutura existente foi exposta e celebrada; o novo entra em aço e vidro, sem mimetizar o antigo. O contraste entre a casca bruta e os volumes inseridos organiza os estúdios criativos.",
+    slug: "casa-jardim", name: "Casa Jardim", year: 2024, local: "Jurerê — Florianópolis, SC",
+    area: "420 m²", type: "Residência", tone: "light",
+    blurb: "Volume horizontal de beirais longos abrindo para o jardim e a piscina.",
+    cover: img("casa-jardim", "cover"), gallery: gallery("casa-jardim"),
+    description: "Reboco claro, madeira e pedra compõem uma casa de planos horizontais e beirais profundos. Os brises de madeira filtram o sol forte e a vida se desloca para fora, entre o estar, a varanda coberta e o espelho d'água.",
   },
   {
-    slug: "edificio-lamina", name: "Edifício Lâmina", year: 2026, local: "Centro, Florianópolis — SC",
-    area: "3.400 m²", type: "Comercial",
-    blurb: "Uma lâmina estreita orientada para o sol e a baía, com brises de concreto.",
-    cover: u("photo-1486406146926-c627a92ad1ab"),
-    gallery: [u("photo-1486406146926-c627a92ad1ab"), u("photo-1454165804606-c3d57bc86b40"), u("photo-1469474968028-56623f02e42e")],
-    description: "Brises de concreto pré-moldado dão ritmo à fachada e controlam o ganho térmico. A lâmina estreita garante luz natural e ventilação a todas as lajes corporativas, com vista para a baía.",
+    slug: "refugio-serra", name: "Refúgio Serra", year: 2022, local: "Urubici — SC",
+    area: "138 m²", type: "Casa de campo", featured: true, tone: "dark",
+    blurb: "Volume de madeira queimada implantado na encosta fria da serra.",
+    cover: img("refugio-serra", "cover"), gallery: gallery("refugio-serra"),
+    description: "Revestida em madeira escurecida, a casa se encaixa no declive e enfrenta o frio com poucos vãos, generosos e bem orientados. Por dentro, concreto e pinho claro guardam o calor; a sauna fecha o programa voltada para a paisagem de neve.",
   },
   {
-    slug: "refugio-mata", name: "Refúgio Mata", year: 2023, local: "Rancho Queimado — SC",
-    area: "96 m²", type: "Casa de campo",
-    blurb: "Implantação leve sobre pilotis na mata atlântica.",
-    cover: u("photo-1518780664697-55e3ad937233"),
-    gallery: [u("photo-1518780664697-55e3ad937233"), u("photo-1449844908441-8829872d2607"), u("photo-1416331108676-a22ccb276e35")],
-    description: "Volume único de madeira sobre pilotis que toca o mínimo no terreno. A face norte se abre por completo para a paisagem; a mata atravessa por baixo da casa sem ser interrompida.",
+    slug: "casa-costa", name: "Casa Costa", year: 2025, local: "Costa da Lagoa — Florianópolis, SC",
+    area: "212 m²", type: "Residência", tone: "light",
+    blurb: "Casa suspensa em chapa metálica, pousada de leve sobre a encosta.",
+    cover: img("casa-costa", "cover"), gallery: gallery("casa-costa"),
+    description: "Uma estrutura metálica sobre pilotis levanta a casa da mata e devolve o terreno à vegetação. O revestimento em chapa ondulada reflete a luz do mar; os grandes panos de vidro e o forro de madeira voltam o interior inteiro para a paisagem.",
+  },
+  {
+    slug: "casa-ladeira", name: "Casa Ladeira", year: 2024, local: "Centro — Florianópolis, SC",
+    area: "184 m²", type: "Residência", featured: true, tone: "dark",
+    blurb: "Três níveis de concreto que escalam um terreno estreito em ladeira.",
+    cover: img("casa-ladeira", "cover"), gallery: gallery("casa-ladeira"),
+    description: "Num lote íngreme e apertado, a casa empilha três faixas de concreto que acompanham a rua. Os vãos envidraçados acendem ao entardecer, e o pé-direito duplo, com forro de madeira em leque, organiza o interior em torno da luz.",
+  },
+  {
+    slug: "atelie-lenho", name: "Ateliê Lenho", year: 2026, local: "São José — SC",
+    area: "96 m²", type: "Cultural", featured: true, tone: "dark",
+    blurb: "Pavilhão de madeira com treliça radial sob um fechamento translúcido.",
+    cover: img("atelie-lenho", "cover"), gallery: gallery("atelie-lenho"),
+    description: "Uma treliça de madeira se abre em leque a partir de um pilar central e sustenta toda a cobertura. O fechamento em policarbonato difunde a luz de dia e acende a empena à noite, transformando o pavilhão num lampião de madeira.",
   },
 ];
+
+export const FEATURED = PROJECTS.filter((p) => p.featured);
 
 export const getProject = (slug: string) => PROJECTS.find((p) => p.slug === slug);

@@ -1,17 +1,28 @@
 // src/routes/Contato.tsx
 import RevealText from "../motion/RevealText";
+import SectionLabel from "../components/SectionLabel";
+import { EMAIL, MAILTO, WHATSAPP_URL } from "../content/contact";
 
 export default function Contato() {
   return (
     <div className="pt-[68px]">
       <section className="flex min-h-[80vh] flex-col justify-center py-24">
         <div className="wrap">
-          <div className="mb-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-mut"><span className="h-px w-9 bg-acc" />Contato</div>
-          <RevealText as="h1" className="font-display text-[clamp(40px,8vw,120px)] font-black uppercase leading-[0.88] tracking-tight" lines={["Vamos construir", 'o <span class="text-acc">seu</span>']} />
-          <div className="mt-10 flex flex-col gap-3">
-            <a href="mailto:contato@estudiolentz.com.br" className="font-mono text-lg uppercase tracking-wide text-acc underline-offset-8 hover:underline">contato@estudiolentz.com.br</a>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-mut">Florianópolis — SC · Atendimento em todo o Brasil</p>
+          <SectionLabel className="mb-8">Contato</SectionLabel>
+          <RevealText as="h1" className="font-display text-[clamp(40px,8vw,120px)] font-black uppercase leading-[0.88] tracking-tight" lines={["Toda obra", 'começa <span class="text-acc">aqui</span>']} />
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex w-fit items-center gap-3 whitespace-nowrap rounded-full bg-acc px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-bg transition-colors hover:bg-fg"
+            >
+              Falar no WhatsApp
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
+            <a href={MAILTO} className="font-mono text-sm uppercase tracking-wide text-fg underline-offset-8 transition-colors hover:text-acc hover:underline">{EMAIL}</a>
           </div>
+          <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.18em] text-mut">Florianópolis — SC · Atendimento em todo o Brasil · Seg–sex, 9h às 18h</p>
         </div>
       </section>
     </div>

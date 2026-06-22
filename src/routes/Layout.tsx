@@ -23,8 +23,14 @@ export default function Layout() {
 
   return (
     <>
+      <a
+        href="#conteudo"
+        className="sr-only font-mono text-[11px] uppercase tracking-[0.18em] focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-acc focus:px-4 focus:py-2 focus:text-bg"
+      >
+        Pular para o conteúdo
+      </a>
       <Header />
-      <main><Outlet /></main>
+      <main id="conteudo"><Outlet /></main>
       <Footer />
     </>
   );

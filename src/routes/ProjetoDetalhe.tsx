@@ -41,9 +41,9 @@ export default function ProjetoDetalhe() {
       </section>
 
       <section className="border-t border-line py-20">
-        <div className="wrap flex items-center justify-between">
+        <div className="wrap flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
           <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-mut">Próximo projeto</span>
-          <Link to={`/projetos/${next.slug}`} className="font-display text-[clamp(28px,5vw,64px)] font-black uppercase tracking-tight transition-colors hover:text-acc">{next.name} →</Link>
+          <Link to={`/projetos/${next.slug}`} className="font-display text-[clamp(28px,5vw,64px)] font-black uppercase leading-[0.9] tracking-tight transition-colors hover:text-acc sm:text-right">{next.name} →</Link>
         </div>
       </section>
     </div>
