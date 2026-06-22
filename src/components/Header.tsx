@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Link, NavLink } from "react-router-dom";
 import { useUiStore } from "../store/useUiStore";
 import { EMAIL, MAILTO, WHATSAPP_URL } from "../content/contact";
@@ -51,7 +52,8 @@ export default function Header() {
   }, [menuOpen]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-[68px] border-b border-line bg-bg/55 backdrop-blur">
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 h-[68px] border-b border-line bg-bg/55 backdrop-blur">
       <div className="wrap flex h-full items-center justify-between">
         <Link to="/" className="font-display text-[15px] font-extrabold uppercase tracking-tight">Estúdio Lentz</Link>
         <nav className="hidden gap-8 font-mono text-[11px] uppercase tracking-[0.18em] md:flex">
@@ -62,14 +64,15 @@ export default function Header() {
         <Link to="/contato" className="hidden rounded-full border border-fg px-4 py-2 font-mono text-[11px] uppercase tracking-[0.18em] transition-colors hover:bg-fg hover:text-bg md:inline-block">Iniciar projeto</Link>
         <button ref={buttonRef} className="font-mono text-[11px] uppercase tracking-widest md:hidden" onClick={toggleMenu} aria-label="Menu" aria-expanded={menuOpen}>{menuOpen ? "Fechar" : "Menu"}</button>
       </div>
+      </header>
 
-      {menuOpen && (
+      {menuOpen && createPortal(
         <div
           ref={drawerRef}
           role="dialog"
           aria-modal="true"
           aria-label="Menu de navegação"
-          className="fixed inset-0 top-[68px] z-40 flex flex-col justify-between bg-bg px-6 pb-10 pt-8 md:hidden"
+          className="fixed inset-x-0 bottom-0 top-[68px] z-40 flex flex-col justify-between bg-bg px-6 pb-10 pt-8 md:hidden"
         >
           <nav className="flex flex-col">
             {LINKS.map((l) => (
@@ -91,8 +94,9 @@ export default function Header() {
             <a href={MAILTO} className="mt-4 block text-fg transition-colors hover:text-acc">{EMAIL}</a>
             <p className="mt-2">Florianópolis — SC</p>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
-    </header>
+    </>
   );
 }

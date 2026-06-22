@@ -5,8 +5,14 @@ import ProjectListRow from "../components/ProjectListRow";
 import CursorImage from "../components/CursorImage";
 import SectionLabel from "../components/SectionLabel";
 import { useIsDesktop } from "../hooks/useIsDesktop";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export default function Projetos() {
+  usePageMeta({
+    title: "Projetos — Estúdio Lentz",
+    description: "Residências, casas de campo e projetos culturais do Estúdio Lentz em Santa Catarina.",
+    path: "/projetos",
+  });
   const desktop = useIsDesktop();
   const [hover, setHover] = useState<string | null>(null);
   const active = PROJECTS.find((p) => p.slug === hover);

@@ -47,7 +47,7 @@ export default function Footer() {
           <ul className="mt-5 space-y-3 text-sm">
             {SOCIAL.map((s) => (
               <li key={s.label}>
-                <a href={s.href} target="_blank" rel="noreferrer" className="inline-flex items-baseline gap-2 transition-colors hover:text-acc">
+                <a href={s.href} target="_blank" rel="noreferrer" className="flex flex-wrap items-baseline gap-x-2 transition-colors hover:text-acc">
                   <span>{s.label}</span>
                   {s.handle && <span className="text-[11px] text-mut">{s.handle}</span>}
                   <span aria-hidden>↗</span>
