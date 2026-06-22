@@ -1,0 +1,18 @@
+@import "./tokens.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+  body { @apply bg-bg text-fg font-sans; overflow-x: hidden; }
+  ::selection { background: var(--acc); color: var(--bg); }
+}
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-[1380px] px-6 md:px-10; }
+}

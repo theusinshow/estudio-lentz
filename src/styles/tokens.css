@@ -1,0 +1,8 @@
+/* Design tokens — editorial cinemático (tema escuro). Fonte de verdade das cores. */
+:root {
+  --bg: #0c0c0b;        /* preto cinema */
+  --fg: #f1ede6;        /* off-white */
+  --mut: #8f8b82;       /* texto secundário */
+  --acc: #fb3640;       /* vermelho técnico — único acento */
+  --line: rgba(241, 237, 230, 0.14);
+}
