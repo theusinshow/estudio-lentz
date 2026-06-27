@@ -69,28 +69,28 @@ export default function Hero() {
       </div>
 
       <div className="wrap relative z-10 pb-14">
-        <div className="relative">
+        <div className="relative max-w-[760px]">
           {/* Placa tintada: contraste garantido sobre qualquer capa (eco do blur da navbar,
               mas com tinta pesada e bordas retas — chapa técnica, não card de vidro). */}
-          <div className="absolute -inset-x-6 -inset-y-7 -z-10 bg-bg/70 backdrop-blur-md md:-inset-x-9" aria-hidden />
+          <div className="absolute -inset-x-3 -inset-y-3 -z-10 bg-bg/30 backdrop-blur-sm md:-inset-x-4" aria-hidden />
 
-          <div className="mb-6 flex flex-wrap gap-5 font-mono text-[11px] uppercase tracking-[0.18em] text-fg">
+          <div className="mb-5 flex flex-wrap gap-5 font-mono text-[10px] uppercase tracking-[0.18em] text-fg">
             <span>Arquitetura</span><span>Florianópolis — SC</span><span>Desde 2018</span>
           </div>
           <RevealText
             as="h1"
-            className="font-display text-[clamp(56px,11vw,160px)] font-black uppercase leading-[0.86] tracking-tight text-fg"
+            className="font-display text-[clamp(34px,6vw,88px)] font-black uppercase leading-[0.86] tracking-tight text-fg"
             lines={["Construir", 'é <span class="text-acc">pensar</span>']}
           />
-          <div className="mt-7 flex flex-wrap items-end justify-between gap-6">
-            <p className="max-w-[440px] text-lg leading-relaxed text-fg/85">
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-6">
+            <p className="max-w-[400px] text-base leading-relaxed text-fg/85">
               Projetamos de dentro para fora: estrutura, luz e material em linguagem direta. A obra é a consequência de um pensamento claro.
             </p>
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-fg/70">↓ Role para ver</span>
           </div>
 
           {multi && (
-            <div className="mt-9 flex items-center gap-4">
+            <div className="mt-7 flex items-center gap-4">
               <div className="flex gap-1" role="tablist" aria-label="Capas em destaque">
                 {SLIDES.map((_, i) => (
                   <button
